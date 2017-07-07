@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, :only => [:new]
+
   def new
+    @user = current_user
     @package = Package.find(params[:package_id])
     @review = @package.reviews.new
   end
   def create
+    @user = current_user
     @package = Package.find(params[:package_id])
     @review = @package.reviews.new(review_params)
     if @review.save
@@ -13,6 +17,7 @@ class ReviewsController < ApplicationController
     end
   end
   def edit
+    @user = current_user
     @package = Package.find(params[:package_id])
     @review = Review.find(params[:id])
   end
