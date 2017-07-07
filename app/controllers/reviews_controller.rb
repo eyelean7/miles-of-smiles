@@ -2,14 +2,15 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, :only => [:new]
 
   def new
-    @user = current_user
     @package = Package.find(params[:package_id])
     @review = @package.reviews.new
   end
   def create
-    @user = current_user
     @package = Package.find(params[:package_id])
     @review = @package.reviews.new(review_params)
+    @review.user = current_user
+
+    binding.pry
     if @review.save
       redirect_to package_path(@review.package)
     else
@@ -17,7 +18,6 @@ class ReviewsController < ApplicationController
     end
   end
   def edit
-    @user = current_user
     @package = Package.find(params[:package_id])
     @review = Review.find(params[:id])
   end
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
     end
   end
   def destroy
-    @package = Package.find(params[:id])
+    @package = Package.find(params[:package_id])
     @package.destroy
     redirect_to packages_path
   end

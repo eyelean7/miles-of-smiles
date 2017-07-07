@@ -21,7 +21,7 @@
           <% else %>
           <li class = nav nav-tab><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <% end %>
-          <% if current_user && current_user.admin %>
+          <% if is_admin? %>
           <li class = nav nav-tab><%= link_to "New Package", new_package_path %></li>
           <% end %>
           <%= yield(:navbar) %>
