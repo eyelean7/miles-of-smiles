@@ -3,5 +3,5 @@
 <% @packages.each do |package| %>
     <h4><%= link_to package.name, package_path(package) %></h4>
     <p><%= package.description %></p>
-    <footer><%= package.price %></footer>
+    <footer>$<%= package.price %></footer>
 <% end %>
