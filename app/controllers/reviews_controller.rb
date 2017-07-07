@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
     @review = @package.reviews.new(review_params)
     @review.user = current_user
 
-    binding.pry
     if @review.save
       redirect_to package_path(@review.package)
     else
