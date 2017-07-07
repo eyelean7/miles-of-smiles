@@ -1,0 +1,7 @@
+<h1>Available Packages</h1>
+
+<% @packages.each do |package| %>
+    <h4><%= package.name %></h4>
+    <p><%= package.description %></p>
+    <footer><%= package.price %></footer>
+<% end %>
