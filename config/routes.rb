@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root :to => 'packages#index'
+  root :to => 'home#index'
 
   resources :packages do
     resources :reviews
