@@ -16,9 +16,14 @@
       <div class="nav">
         <ul>
           <li class = nav nav-tab><%= link_to "All Packages", packages_path %></li>
+          <% if !current_user %>
           <li class = nav nav-tab><%= link_to "Sign In", new_user_session_path %></li>
+          <% else %>
           <li class = nav nav-tab><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <% end %>
+          <% if current_user && current_user.admin %>
           <li class = nav nav-tab><%= link_to "New Package", new_package_path %></li>
+          <% end %>
           <%= yield(:navbar) %>
         </ul>
       </div>
