@@ -16,7 +16,7 @@
       <div class="nav">
         <ul>
           <li class = nav nav-tab><%= link_to "All Packages", packages_path %></li>
-          <li class = nav nav-tab><%= link_to "Sign In", packages_path %></li>
+          <li class = nav nav-tab><%= link_to "Sign In", new_user_session_path %></li>
           <li class = nav nav-tab><%= link_to "New Package", new_package_path %></li>
           <%= yield(:navbar) %>
         </ul>
