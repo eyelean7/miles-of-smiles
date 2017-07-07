@@ -1,0 +1,9 @@
+<%= render('layouts/errors', :object => @review) %>
+
+<%= form_for [@package, @review] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <p><%= f.submit %></p>
+<% end %>

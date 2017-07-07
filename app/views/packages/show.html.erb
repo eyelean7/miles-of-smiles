@@ -3,6 +3,26 @@
 
 <p><%= @package.description %></p>
 
+<% if @package.reviews.any? %>
+  <h4>Here are the reviews for this package:</h4>
+
+  <ul>
+    <% @package.reviews.each do |review| %>
+      <li>
+        <%= review.rating %>
+        <%= review.content %> |
+        <%= link_to "Edit", edit_package_review_path(@package, review) %> |
+        <%= link_to "Delete", package_review_path(@package, review),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no reviews yet!</p>
+<% end %>
+
+<p><%= link_to "Add a review", new_package_review_path(@package) %></p>
 <p><%= link_to "Edit", edit_package_path(@package) %></p>
 <p><%= link_to "Delete", package_path(@package),
                          :data => {:confirm => "You sure?",
