@@ -16,6 +16,22 @@ class PackagesController < ApplicationController
       render :new
     end
   end
+  def edit
+    @package = Package.find(params[:id])
+  end
+  def update
+    @package= Package.find(params[:id])
+    if @package.update(package_params)
+      redirect_to packages_path
+    else
+      render :edit
+    end
+  end
+  def destroy
+  @package = Package.find(params[:id])
+  @package.destroy
+  redirect_to packages_path
+end
 private
   def package_params
     params.require(:package).permit(:name, :description, :price)

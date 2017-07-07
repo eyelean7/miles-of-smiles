@@ -2,3 +2,8 @@
 <h2>$<%= @package.price %></h2>
 
 <p><%= @package.description %></p>
+
+<p><%= link_to "Edit", edit_package_path(@package) %></p>
+<p><%= link_to "Delete", package_path(@package),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
