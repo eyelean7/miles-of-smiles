@@ -10,6 +10,8 @@ gem "rspec-expectations", :github => "rspec/rspec-expectations"
 gem "rspec-mocks", :github => "rspec/rspec-mocks"
 gem "rspec-support", :github => "rspec/rspec-support"
 gem "rspec-rails", :github => "rspec/rspec-rails"
+# Use bootstrap
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record

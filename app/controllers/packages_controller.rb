@@ -11,7 +11,7 @@ class PackagesController < ApplicationController
   def create
     @package = Package.new(package_params)
     if @package.save
-      redirect_to  packages_path
+      redirect_to  package_path(@package)
     else
       render :new
     end
